@@ -94,5 +94,4 @@ const winner = function(playerChoice, computerChoice) {
         playerScore++;
         playerScoreEl.textContent = playerScore;
     }
-    console.log(playerChoice + ' ' + randomElement[random]);
 }

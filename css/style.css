@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: linear-gradient(to top left, #0c6798 0%, #0eb379 100%);
+}
+
+h1 {
+    margin-top: -20px;
+    margin-bottom: 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 760px;
+    margin-bottom: 10px;
+}
+
+.player-choice,
+.computer-choice {
+    text-align: center;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 250px;
+    height: 200px;
+    margin: 40px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.player-choice-head,
+.computer-choice-head {
+    text-align: center;
+    padding: 5px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(43, 25, 25, 0.4);
+    height: 40px;
+    width: 250px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.player-score,
+.computer-score {
+    text-align: center;
+    position: absolute;
+    bottom: -25px;
+    left: 100px;
+    background-color: rgba(43, 25, 25, 0.4);
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    padding: 13px 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.player-choice-img,
+.computer-choice-img {
+    width: 160px;
+    margin-top: 20px;
+}
+
+#play-again {
+    color: #FFF;
+    border: none;
+    box-shadow: 0px 0px 5px 1px #FFF;
+    padding: 10px;
+    width: 100px;
+    background-color: rgba(0, 0, 0, 0.53);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-weight: bolder;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.728);
+    width: 300px;
+    height: 70px;
+    color: rgba(0, 0, 0, 0.831);
+}
+
+.winner {
+    color: #ef188e;
+}
+
+.choice {
+    width: 120px;
+    padding: 10px;
+}
+
+.btn {
+    margin: 20px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+#rock {
+    background-color: #e83123;
+}
+
+#paper {
+    background-color: #13e4a2;
+}
+
+#scissors {
+    background-color: #00ffff;
+}

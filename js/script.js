@@ -27,7 +27,7 @@ let rockBtn = document.getElementById('rock'),
     buttonsContainer = document.querySelector('.buttons');
 
 
-const randomElement = ['../images/rock.png', '../images/paper.png', '../images/scissors.png'];
+const randomElement = ['images/rock.png', 'images/paper.png', 'images/scissors.png'];
 let random = Math.floor(Math.random() * randomElement.length);
 
 let playerScore = 0;
@@ -82,17 +82,17 @@ const btnClick = function(imgSrc) {
 }
 
 rockBtn.onclick = function() {
-    btnClick('../images/rock.png');
+    btnClick('images/rock.png');
     roundWinner();
 }
 
 paperBtn.onclick = function() {
-    btnClick('../images/paper.png');
+    btnClick('images/paper.png');
     roundWinner();
 }
 
 scissorsBtn.onclick = function() {
-    btnClick('../images/scissors.png');
+    btnClick('images/scissors.png');
     roundWinner();
 }
 
@@ -108,25 +108,25 @@ playAgainBtn.onclick = function() {
 
 }
 const winner = function(playerChoice, computerChoice) {
-    if ((playerChoice == '../images/rock.png' && computerChoice == '../images/rock.png') || (playerChoice == '../images/paper.png' && computerChoice == '../images/paper.png') || (playerChoice == '../images/scissors.png' && computerChoice == '../images/scissors.png')) {
+    if ((playerChoice == 'images/rock.png' && computerChoice == 'images/rock.png') || (playerChoice == 'images/paper.png' && computerChoice == 'images/paper.png') || (playerChoice == 'images/scissors.png' && computerChoice == 'images/scissors.png')) {
 
-    } else if (playerChoice == '../images/rock.png' && randomElement[random] == '../images/scissors.png') {
+    } else if (playerChoice == 'images/rock.png' && randomElement[random] == 'images/scissors.png') {
         playerScore++;
         playerScoreEl.textContent = playerScore;
 
-    } else if (playerChoice == '../images/scissors.png' && randomElement[random] == '../images/rock.png') {
+    } else if (playerChoice == 'images/scissors.png' && randomElement[random] == 'images/rock.png') {
         computerScore++;
         computerScoreEl.textContent = computerScore;
-    } else if (playerChoice == '../images/rock.png' && randomElement[random] == '../images/paper.png') {
+    } else if (playerChoice == 'images/rock.png' && randomElement[random] == 'images/paper.png') {
         computerScore++;
         computerScoreEl.textContent = computerScore;
-    } else if (playerChoice == '../images/paper.png' && randomElement[random] == '../images/rock.png') {
+    } else if (playerChoice == 'images/paper.png' && randomElement[random] == 'images/rock.png') {
         playerScore++;
         playerScoreEl.textContent = playerScore;
-    } else if (playerChoice == '../images/paper.png' && randomElement[random] == '../images/scissors.png') {
+    } else if (playerChoice == 'images/paper.png' && randomElement[random] == 'images/scissors.png') {
         computerScore++;
         computerScoreEl.textContent = computerScore;
-    } else if (playerChoice == '../images/scissors.png' && randomElement[random] == '../images/paper.png') {
+    } else if (playerChoice == 'images/scissors.png' && randomElement[random] == 'images/paper.png') {
         playerScore++;
         playerScoreEl.textContent = playerScore;
     }

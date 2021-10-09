@@ -1,16 +1,33 @@
-let rockBtn = document.getElementById('rock');
-let paperBtn = document.getElementById('paper');
-let scissorsBtn = document.getElementById('scissors');
-let playAgainBtn = document.getElementById('play-again');
+let rockBtn = document.getElementById('rock'),
+    paperBtn = document.getElementById('paper'),
+    scissorsBtn = document.getElementById('scissors'),
+    playBtn = document.getElementById('play-game'),
+    mainMenuBtn = document.getElementById('main-menu-btn'),
+    playAgainBtn = document.getElementById('play-again'),
+    rulesBtn = document.getElementById('rules'),
+    rulesReturnBtn = document.getElementById('rules-return-btn'),
 
-let playerChoiceImg = document.querySelector('.player-choice-img');
-let computerChoiceImg = document.querySelector('.computer-choice-img');
 
-let resultEl = document.querySelector('.winner');
-let playerScoreEl = document.querySelector('.player-score');
-let computerScoreEl = document.querySelector('.computer-score');
+    playerChoiceImg = document.querySelector('.player-choice-img'),
+    computerChoiceImg = document.querySelector('.computer-choice-img'),
 
-const randomElement = ['js/rock.png', 'js/paper.png', 'js/scissors.png'];
+    iconEl = document.querySelector('.fas'),
+    playerScoreEl = document.querySelector('.player-score'),
+    computerScoreEl = document.querySelector('.computer-score'),
+
+
+
+    firstWindow = document.querySelector('.first-window'),
+    rulesWindow = document.querySelector('.rules-window'),
+    winnerWindow = document.querySelector('.winner'),
+    overlay = document.querySelector('.overlay'),
+    winnerOverlay = document.querySelector('.winner-overlay'),
+    h1 = document.querySelector('h1'),
+    container = document.querySelector('.container'),
+    buttonsContainer = document.querySelector('.buttons');
+
+
+const randomElement = ['../images/rock.png', '../images/paper.png', '../images/scissors.png'];
 let random = Math.floor(Math.random() * randomElement.length);
 
 let playerScore = 0;
@@ -22,36 +39,61 @@ playerChoiceImg.classList.add('hidden');
 computerChoiceImg.classList.add('hidden');
 
 
-rockBtn.onclick = function() {
+playBtn.onclick = function() {
+    firstWindow.classList.add('hidden');
+    h1.classList.remove('hidden');
+    playAgainBtn.classList.remove('hidden');
+    container.classList.remove('hidden');
+    buttonsContainer.classList.remove('hidden');
+}
+rulesBtn.onclick = function() {
+    rulesWindow.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+}
+const closeRules = function() {
+    rulesWindow.classList.add('hidden');
+    overlay.classList.add('hidden');
+}
+rulesReturnBtn.onclick = function() {
+    closeRules();
+}
+overlay.onclick = function() {
+    closeRules();
+}
+
+
+
+
+mainMenuBtn.onclick = function() {
+    firstWindow.classList.remove('hidden');
+    h1.classList.add('hidden');
+    playAgainBtn.classList.add('hidden');
+    container.classList.add('hidden');
+    buttonsContainer.classList.add('hidden');
+}
+
+const btnClick = function(imgSrc) {
     playerChoiceImg.classList.remove('hidden');
     computerChoiceImg.classList.remove('hidden');
-    playerChoiceImg.src = 'js/rock.png';
+    playerChoiceImg.src = imgSrc;
     computerChoiceImg.src = randomElement[random];
     winner(playerChoiceImg.getAttribute('src'), randomElement[random]);
-
     random = Math.floor(Math.random() * randomElement.length);
+}
 
-
+rockBtn.onclick = function() {
+    btnClick('../images/rock.png');
+    roundWinner();
 }
 
 paperBtn.onclick = function() {
-    playerChoiceImg.classList.remove('hidden');
-    computerChoiceImg.classList.remove('hidden');
-    playerChoiceImg.src = 'js/paper.png';
-    computerChoiceImg.src = randomElement[random];
-    winner(playerChoiceImg.getAttribute('src'), randomElement[random]);
-    random = Math.floor(Math.random() * randomElement.length);
-
+    btnClick('../images/paper.png');
+    roundWinner();
 }
 
 scissorsBtn.onclick = function() {
-    playerChoiceImg.classList.remove('hidden');
-    computerChoiceImg.classList.remove('hidden');
-    playerChoiceImg.src = 'js/scissors.png';
-    computerChoiceImg.src = randomElement[random];
-    winner(playerChoiceImg.getAttribute('src'), randomElement[random]);
-    random = Math.floor(Math.random() * randomElement.length);
-
+    btnClick('../images/scissors.png');
+    roundWinner();
 }
 
 playAgainBtn.onclick = function() {
@@ -61,37 +103,44 @@ playAgainBtn.onclick = function() {
     computerScore = 0;
     playerScoreEl.textContent = playerScore;
     computerScoreEl.textContent = computerScore;
-    resultEl.textContent = '';
+    winnerOverlay.classList.add('hidden');
+    winnerWindow.classList.add('hidden');
+
 }
-
-
 const winner = function(playerChoice, computerChoice) {
-    if ((playerChoice == 'js/rock.png' && computerChoice == 'js/rock.png') || (playerChoice == 'js/paper.png' && computerChoice == 'js/paper.png') || (playerChoice == 'js/scissors.png' && computerChoice == 'js/scissors.png')) {
-        resultEl.textContent = 'No One Won This Round';
-    } else if (playerChoice == 'js/rock.png' && randomElement[random] == 'js/scissors.png') {
-        resultEl.textContent = 'You Won This Round';
+    if ((playerChoice == '../images/rock.png' && computerChoice == '../images/rock.png') || (playerChoice == '../images/paper.png' && computerChoice == '../images/paper.png') || (playerChoice == '../images/scissors.png' && computerChoice == '../images/scissors.png')) {
+
+    } else if (playerChoice == '../images/rock.png' && randomElement[random] == '../images/scissors.png') {
         playerScore++;
         playerScoreEl.textContent = playerScore;
 
-    } else if (playerChoice == 'js/scissors.png' && randomElement[random] == 'js/rock.png') {
-        resultEl.textContent = 'Computer Won This Round';
+    } else if (playerChoice == '../images/scissors.png' && randomElement[random] == '../images/rock.png') {
         computerScore++;
         computerScoreEl.textContent = computerScore;
-    } else if (playerChoice == 'js/rock.png' && randomElement[random] == 'js/paper.png') {
-        resultEl.textContent = 'Computer Won This Round';
+    } else if (playerChoice == '../images/rock.png' && randomElement[random] == '../images/paper.png') {
         computerScore++;
         computerScoreEl.textContent = computerScore;
-    } else if (playerChoice == 'js/paper.png' && randomElement[random] == 'js/rock.png') {
-        resultEl.textContent = 'You Won This Round';
+    } else if (playerChoice == '../images/paper.png' && randomElement[random] == '../images/rock.png') {
         playerScore++;
         playerScoreEl.textContent = playerScore;
-    } else if (playerChoice == 'js/paper.png' && randomElement[random] == 'js/scissors.png') {
-        resultEl.textContent = 'Computer Won This Round';
+    } else if (playerChoice == '../images/paper.png' && randomElement[random] == '../images/scissors.png') {
         computerScore++;
         computerScoreEl.textContent = computerScore;
-    } else if (playerChoice == 'js/scissors.png' && randomElement[random] == 'js/paper.png') {
-        resultEl.textContent = 'You Won This Round';
+    } else if (playerChoice == '../images/scissors.png' && randomElement[random] == '../images/paper.png') {
         playerScore++;
         playerScoreEl.textContent = playerScore;
+    }
+
+}
+const roundWinner = function() {
+    if (playerScore == 5) {
+        winnerWindow.innerHTML = 'YOU WON THIS ROUND 🎉';
+        winnerWindow.classList.remove('hidden');
+        winnerOverlay.classList.remove('hidden');
+    } else if (computerScore == 5) {
+        winnerWindow.innerHTML = 'COMPUTER WON THIS ROUND 🎉';
+        winnerWindow.classList.remove('hidden');
+        winnerOverlay.classList.remove('hidden');
+
     }
 }

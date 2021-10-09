@@ -3,14 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
+
     <title>Rock Paper Scissors</title>
-        <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/57c783de70.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
-    <h1>Rock Paper Scissors</h1>
-    <div class="container">
+    <h1 class="hidden">Rock Paper Scissors</h1>
+
+    <div class="container hidden">
+        <div class="main-menu" id="main-menu-btn">
+            <i class="fas fa-chevron-left "></i>
+            <p>Main Menu</p>
+        </div>
+
         <section class="player-choice">
             <div class="player-choice-head">
                 <h2>You</h2>
@@ -18,7 +26,6 @@
             <img src="" class="player-choice-img">
             <div class="player-score">0</div>
         </section>
-        <button id="play-again">Play Again</button>
         <section class="computer-choice">
             <div class="computer-choice-head">
                 <h2>computer</h2>
@@ -26,20 +33,35 @@
             <img src="" class="computer-choice-img">
             <div class="computer-score">0</div>
         </section>
-
     </div>
 
 
-    <section class="result">
-        Result:
-        <p class="winner"></p>
-    </section>
-
-    <div class="buttons">
+    <div class="buttons hidden">
         <button id="rock" class="btn"><img class="choice" src="images/rock.png" alt=""></button >
         <button id="paper" class="btn" ><img class="choice" src="images/paper.png" alt=""></button >
         <button id="scissors" class="btn" ><img class="choice" src="images/scissors.png" alt=""></button>
     </div>
+
+
+
+    <button class="play-again hidden" id="play-again">Play Again</button>
+
+    <div class="first-window">
+        <p>ROCK PAPER SCISSORS GAME</p>
+        <button id="play-game">Play</button>
+        <button id="rules">Rules</button>
+    </div>
+    <div class="rules-window hidden">
+        <div id="rules-return-btn">
+            <i class="fas fa-chevron-left "></i>
+        </div>
+        <p>Rules</p>
+        <img src="images/rules.png">
+    </div>
+    <div class="winner hidden"></div>
+    <div class="overlay hidden"></div>
+    <div class="winner-overlay hidden"></div>
+
 
     <script src="js/script.js"></script>
 </body>
